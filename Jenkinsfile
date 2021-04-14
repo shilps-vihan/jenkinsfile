@@ -8,7 +8,7 @@ pipeline{
      stages{
          stage("clone the code"){
              steps{
-                 git 'some_git_location'
+                 git 'https://github.com/ravdy/hello-world.git'
              }
          }     
          stage("maven build"){
@@ -19,7 +19,7 @@ pipeline{
          stage("upload war to s3"){
              steps{
                 sh """
-                aws s3 cp /var/lib/jenkins/workspace/${params.project}/webapp/target/webapp.war <some_s3 bucket>
+                aws s3 cp /var/lib/jenkins/workspace/pipeline-demo/webapp/target/webapp.war s3://s3-jenkinsfile
                 """
              }
          }
@@ -27,7 +27,7 @@ pipeline{
              steps{
                 sh """
                 ./opt/apache-tomcat-8.5.65/bin/shutdown.sh
-                aws s3 cp s3://<some_s3 bucket>/webapp.war /opt/apache-tomcat-8.5.65/webapps
+                aws s3 cp s3://s3-jenkinsfile/webapp.war /opt/apache-tomcat-8.5.65/webapps
                 ./opt/apache-tomcat-8.5.65/bin/startup.sh
                 """
              }
