@@ -1,0 +1,30 @@
+java-1.8.0-openjdk-devel
+
+[root@ip-172-31-25-44 ~]# rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+[root@ip-172-31-25-44 ~]# wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo 
+or yum install wget 
+
+
+
+[root@ip-172-31-25-44 ~]# rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+systemctl start jenkins
+systemctl status jenkins
+
+_________MAVEN__________
+
+wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+
+tar -xvf apache-maven-3.6.3-bin.tar.gz
+
+
+Linux commands:
+ls -l
+ls -al
+cat /etc/os-release --->to know version of os on u r linux machine
+netstat -antp | grep 8080 ---->to know port number.
+
+
+
+
